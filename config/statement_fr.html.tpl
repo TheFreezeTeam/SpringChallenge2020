@@ -1,7 +1,7 @@
-<!-- LEAGUES level1 level2 level3 level4 -->
+<!-- LEAGUES level1 level2 level3 level4 level5 -->
 <div id="statement_back" class="statement_back" style="display: none"></div>
 <div class="statement-body">
-  <!-- BEGIN level1 level2 level3 -->
+  <!-- BEGIN level1 level2 level3 level4 -->
   <!-- LEAGUE ALERT -->
   <div style="color: #7cc576; 
     background-color: rgba(124, 197, 118,.1);
@@ -45,6 +45,15 @@
       <br>
       Consultez l'énoncé mis à jour pour plus de détails.</span>
     <!-- END -->
+    <!-- BEGIN level4 -->
+    <p style="text-align: center; font-weight: 700; margin-bottom: 6px;">
+      Résumé des nouvelles règles.
+    </p>
+    <span class="statement-league-alert-content">
+      Vous pouvez maintenant voir les pacs qui sont morts.
+      <br><br>
+      Consultez l'énoncé mis à jour pour plus de détails.</span>
+    <!-- END -->
   </div>
   <!-- END -->
   <!-- GOAL -->
@@ -57,7 +66,7 @@
       <div>
         Manger plus de pastilles que votre adversaire !
 
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         Et éviter de se faire tuer !
         <!-- END -->
       </div>
@@ -73,7 +82,7 @@
           alt="Manger plus de pastilles que votre adversaire !" style="width: 60%" />
         <!-- END -->
 
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         <img src="https://static.codingame.com/servlet/fileservlet?id=43832345828298"
           alt="Manger plus de pastilles que votre adversaire !" style="width: 60%" />
         <!-- END -->
@@ -95,7 +104,7 @@
         <!-- BEGIN level1 -->
         Dans cette première ligue, chaque joueur contrôle un seul pac qui peut bouger dans la grille.
         <!-- END -->
-        <!-- BEGIN level2 level3 level4 -->
+        <!-- BEGIN level2 level3 level4 level5 -->
         Chaque joueur contrôle une équipe de pacs qui peuvent bouger dans la grille.
         <!-- END -->
       </p>
@@ -135,7 +144,7 @@
         <!-- BEGIN level1 -->
         Manger une pastille avec votre <strong>pac</strong> vous rapporte <const>1&nbsp;point</const>.
         <!-- END -->
-        <!-- BEGIN level2 level3 level4 -->
+        <!-- BEGIN level2 level3 level4 level5 -->
         Manger une pastille avec l'un de vos <strong>pacs</strong> vous rapporte <const>1&nbsp;point</const>.
         <!-- END -->
         Les super-pastilles valent <const>10&nbsp;points</const>. Une fois mangée, une pastille disparaît.
@@ -166,7 +175,7 @@
       <div class="statement-new-league-rule">
         <!-- END -->
 
-        <!-- BEGIN level2 level3 level4 -->
+        <!-- BEGIN level2 level3 level4 level5 -->
         <p>Chaque joueur commence avec le même nombre de pacs, jusqu'à <const>5</const> chacun.</p>
         <!-- END -->
 
@@ -187,7 +196,7 @@
       <!-- BEGIN level3 -->
       <div class="statement-new-league-rule">
         <!-- END -->
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         <p>
           Vos pacs <strong>ne voient pas à travers les murs</strong>.
           À chaque tour, vous voyez toutes les pastilles et les pacs ennemis qui peuvent être reliés à vos pacs par une
@@ -214,7 +223,7 @@
       <!-- BEGIN level3 -->
       <div class="statement-new-league-rule">
         <!-- END -->
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         <p>
           Chaque pac possède un <var>type</var> donné (<action>ROCK</action>, <action>PAPER</action> ou <action>SCISSORS
           </action>).
@@ -236,8 +245,8 @@
       <p>Les pacs peuvent recevoir la commande suivante&nbsp;:</p>
         <!-- END -->
 
-        <!-- BEGIN level2 level3 level4 -->
-      <p>Les pacs peuvent recevoir les commandes suivantes&nbsp;:</p>
+        <!-- BEGIN level2 level3 level4 level5 -->
+      <p>Les pacs peuvent recevoir les commandes suivantes (un pac ne peut recevoir qu'une commande par tour)&nbsp;:</p>
         <!-- END -->
       <ul>
         <li>
@@ -259,7 +268,7 @@
       <div class="statement-new-league-rule">
         <ul>
           <!-- END -->
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           <li>
             <action>SWITCH</action>&nbsp;: Si les compétences du pac sont disponibles, celui-ci va se transformer en un
             nouveau type de pac. Les types de pacs disponibles sont&nbsp;:
@@ -294,7 +303,7 @@
               <img src="https://static.codingame.com/servlet/fileservlet?id=43832428009785"
                 style="width: 400px; max-width: 100%" />
               <div style="margin: auto; width: 400px; max-width: 100%">
-                <em>L'action <action>SPEED</action> permet à un pac de se déplacer de 2 coups au l'un d'un seul pendant
+                <em>L'action <action>SPEED</action> permet à un pac de se déplacer de 2 coups au lieu d'un seul pendant
                   les 5 prochains tours.</em></div>
             </div>
           </li>
@@ -326,7 +335,7 @@
         <div class="statement-new-league-rule">
           <!-- END -->
 
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           <p>
             Croiser un pac ou atterrir sur la même case peut créer une <b>collision</b>. Voici comment ces collisions sont résolues&nbsp;:
           </p>
@@ -341,7 +350,7 @@
           <br>
           <!-- END -->
 
-        <!-- BEGIN level3 level4 -->
+        <!-- BEGIN level3 level4 level5 -->
         <h3 style="font-size: 14px;
       font-weight: 700;
       padding-top: 5px;
@@ -376,7 +385,7 @@
         <!-- BEGIN level3 -->
         <div class="statement-new-league-rule">
           <!-- END -->
-          <!-- BEGIN level3 level4 -->
+          <!-- BEGIN level3 level4 level5 -->
           </br>
           Si tous les pacs d'un joueur sont morts, toutes les pastilles restantes sont automatiquement accordées aux
           pacs survivants et la partie se termine.<br>
@@ -431,7 +440,7 @@
 
 </div>
 
-    <!-- BEGIN level3 level4 -->
+    <!-- BEGIN level3 level4 level5 -->
     <!-- EXPERT RULES -->
     <div class="statement-section statement-expertrules">
       <h2>
@@ -461,11 +470,11 @@
       <div class="title">Entrées d'initialisation
       </div>
       <div class="text">
-        <span class="statement-lineno">Ligne 1&nbsp;: deux entiers <var>width</var> et <var>height</var> pour la taille
-          de la grille.</span><br>
-        <span class="statement-lineno">Les <var>height</var> lignes suivantes&nbsp;: une chaîne de <var>width</var>
+        <span class="statement-lineno">Ligne 1&nbsp;:</span> deux entiers <var>width</var> et <var>height</var> pour la taille
+          de la grille.<br>
+        <span class="statement-lineno">Les <var>height</var> lignes suivantes&nbsp;:</span> une chaîne de <var>width</var>
           caractères représentant les cases de cette ligne&nbsp;: <const>' '</const> pour du sol et <const>'#'</const>
-          pour un mur. </span>
+          pour un mur. 
         <br>
       </div>
     </div>
@@ -485,14 +494,14 @@
             <var>visiblePacCount</var>&nbsp;: le nombre de pacs visibles pour vous
           </li>
         </ul>
-        <span class="statement-lineno">Les <var>visiblePacCount</var> lignes suivantes&nbsp;:</span> six entiers&nbsp;:
+        <span class="statement-lineno">Les <var>visiblePacCount</var> lignes suivantes&nbsp;:</span>
         <br>
         <ul style="padding-left: 20px;padding-top:0;padding-bottom:0px">
           <li>
-            <var>pacId</var>&nbsp;: l'ID unique du pac
+            <var>pacId</var>&nbsp;: l'ID du pac (unique par joueur)
           </li>
           <li>
-            <var>mine</var>&nbsp;: le propriétaire du pac (1 si ce pac est à vous, 0 sinon)
+            <var>mine</var>&nbsp;: le propriétaire du pac (1 si ce pac est à vous, 0 sinon. Converti en un type booléen pour la majorité des langages.)
           </li>
           <li>
             <var>x</var> & <var>y</var>&nbsp;: la position du pac
@@ -515,11 +524,28 @@
           <ul>
             <!-- END -->
 
-            <!-- BEGIN level3 level4 -->
+            <!-- BEGIN level3 level4 level5 -->
+
+            <!-- BEGIN level4 -->
+            </ul>
+            <div class="statement-new-league-rule">
+            <ul>
+            <!-- END -->
+
             <li>
               <var>typeId</var>&nbsp;: le type de pac (<action>ROCK</action> ou <action>PAPER</action> ou <action>
-                SCISSORS</action>)
+                SCISSORS</action>).
+                <!-- BEGIN level4 level5 -->
+                Si le pac est mort, son type est maintenant <action>DEAD</action>.
+                <!-- END -->
             </li>
+
+            <!-- BEGIN level4 -->
+            </ul>
+            </div>
+            <ul>
+            <!-- END -->
+
             <li>
               <var>speedTurnsLeft</var>&nbsp;: le nombre de tours restants avant que l'effet du speed ne s'estompe
             </li>
@@ -553,7 +579,6 @@
       <div class="title">Sortie pour un tour de jeu
       </div>
       <div class="text">
-        <span class="statement-lineno">
           <!-- BEGIN level1 -->
           Une seule ligne avec votre action&nbsp;:
           <!-- END -->
@@ -561,7 +586,7 @@
           <!-- BEGIN level2 -->
           <div class="statement-new-league-rule">
             <!-- END -->
-            <!-- BEGIN level2 level3 level4 -->
+            <!-- BEGIN level2 level3 level4 level5 -->
             Une seule ligne avec une ou plusieurs commandes séparées par <const>|</const>. Par exemple&nbsp;: <action>
               MOVE 0 5 7 | MOVE 1 16 10</action>.
             <!-- END -->
@@ -581,7 +606,7 @@
           <div class="statement-new-league-rule">
             <ul>
               <!-- END -->
-              <!-- BEGIN level3 level4 -->
+              <!-- BEGIN level3 level4 level5 -->
               <li>
                 <action>SPEED pacId </action>&nbsp;: le pac pourra se déplacer de 2 cases pendant les 5 tours suivants.
               </li>
@@ -598,6 +623,11 @@
     <div class="blk">
       <div class="title">Contraintes</div>
       <div class="text">
+        <!-- BEGIN level2 level3 level4 level5 -->
+        <const>2</const> ≤ Nombre de pacs par joueur ≤ <const>5</const><br>
+        <const>29</const> ≤ <var>width</var> ≤ <const>35</const><br>
+        <const>10</const> ≤ <var>height</var> ≤ <const>17</const><br>
+        <!-- END -->
         Temps de réponse par tour ≤ <const>50</const>ms<br>
         Temps de réponse au premier tour ≤ <const>1000</const>ms
       </div>

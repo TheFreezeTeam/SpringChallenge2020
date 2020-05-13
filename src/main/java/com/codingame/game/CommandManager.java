@@ -88,10 +88,15 @@ public class CommandManager {
                 if (match.matches()) {
                     int pacNumber = Integer.parseInt(match.group("id"));
                     try {
-                        pac = player.getAlivePacmen()
+                        pac = player.getPacmen()
+                            .stream()
                             .filter((value) -> (value.getNumber() == pacNumber))
                             .findFirst()
                             .get();
+                        if (pac.isDead()) {
+                            pac.addToGameSummary(String.format("Pac %d is dead! It cannot be commanded anymore!", pacNumber));
+                            continue;
+                        }
                         if (pac.getIntent() != Action.NO_ACTION) {
                             throw new GameException(String.format("Pac %d cannot be commanded twice!", pacNumber));
                         }
@@ -115,7 +120,7 @@ public class CommandManager {
                         throw new GameException(
                             String.format(
                                 "Pac %d (%s) cannot reach its target (%d, %d) because it is out of grid!",
-                                pac.getId(),
+                                pac.getNumber(),
                                 pac.getOwner().getColor(),
                                 x,
                                 y
