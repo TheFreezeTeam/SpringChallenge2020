@@ -8,10 +8,11 @@ public class Spring2020Main {
         Options opts = new Options().read(args);
         String cli1 = opts.getCommandLine1();
         String cli2 = opts.getCommandLine2();
+        Long cli3 = opts.getCommandLine3();
 
         MultiplayerGameRunner gameRunner = new MultiplayerGameRunner();
         gameRunner.setLeagueLevel(3);
-        gameRunner.setSeed(5842184981578562716L);
+        
 
         // add player 1
         if (null != cli1) {
@@ -27,6 +28,11 @@ public class Spring2020Main {
             gameRunner.addAgent("python C:/git/AzureDevOps/Training/CodingGame/PacMan/OtherBots/Boss.py", "Inky", "https://static.codingame.com/servlet/fileservlet?id=43829821541064");
         }
 
+        if (null != cli2) {
+            gameRunner.setSeed(cli3);
+        } else {
+            gameRunner.setSeed(5842184981578562716L);
+        }
 
         Properties params = new Properties();
 
@@ -39,6 +45,7 @@ public class Spring2020Main {
 class Options {
     private String commandLine1 = null;
     private String commandLine2 = null;
+    private String commandLine3 = null;
 
     public Options read(String[] args) {
         if (args == null) {
@@ -55,6 +62,12 @@ class Options {
                 this.commandLine2 = args[1];
                 break;
             }
+            case 3: {
+                this.commandLine1 = args[0];
+                this.commandLine2 = args[1];
+                this.commandLine3 = args[2];
+                break;
+            }
         }
 
         return this;
@@ -66,6 +79,10 @@ class Options {
 
     public String getCommandLine2() {
         return this.commandLine2;
+    }
+
+    public Long getCommandLine3() {
+        return Long.parseLong(this.commandLine3);
     }
 }
 
