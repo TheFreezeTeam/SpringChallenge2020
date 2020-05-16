@@ -12,20 +12,21 @@ public class Spring2020Main {
 
         MultiplayerGameRunner gameRunner = new MultiplayerGameRunner();
         gameRunner.setLeagueLevel(3);
-        
 
         // add player 1
         if (null != cli1) {
             gameRunner.addAgent(cli1);
         } else {
-            gameRunner.addAgent("python C:/git/AzureDevOps/Training/CodingGame/PacMan/OtherBots/Boss.py", "Blinky", "https://static.codingame.com/servlet/fileservlet?id=43829808065962");
+            gameRunner.addAgent("python C:/git/AzureDevOps/Training/CodingGame/PacMan/OtherBots/Boss.py", "Blinky",
+                    "https://static.codingame.com/servlet/fileservlet?id=43829808065962");
         }
 
         // add player 2
         if (null != cli2) {
             gameRunner.addAgent(cli2);
         } else {
-            gameRunner.addAgent("python C:/git/AzureDevOps/Training/CodingGame/PacMan/OtherBots/Boss.py", "Inky", "https://static.codingame.com/servlet/fileservlet?id=43829821541064");
+            gameRunner.addAgent("python C:/git/AzureDevOps/Training/CodingGame/PacMan/OtherBots/Boss.py", "Inky",
+                    "https://static.codingame.com/servlet/fileservlet?id=43829821541064");
         }
 
         if (null != cli2) {
@@ -85,4 +86,3 @@ class Options {
         return Long.parseLong(this.commandLine3);
     }
 }
-
