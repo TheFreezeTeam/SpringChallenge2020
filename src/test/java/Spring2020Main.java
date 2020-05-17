@@ -29,7 +29,7 @@ public class Spring2020Main {
                     "https://static.codingame.com/servlet/fileservlet?id=43829821541064");
         }
 
-        if (null != cli2) {
+        if (null != cli3) {
             gameRunner.setSeed(cli3);
         } else {
             gameRunner.setSeed(5842184981578562716L);
@@ -83,6 +83,7 @@ class Options {
     }
 
     public Long getCommandLine3() {
+        if(this.commandLine3 == null) return null;
         return Long.parseLong(this.commandLine3);
     }
 }
