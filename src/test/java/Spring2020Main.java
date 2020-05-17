@@ -10,8 +10,12 @@ public class Spring2020Main {
         String cli2 = opts.getCommandLine2();
         Long cli3 = opts.getCommandLine3();
 
+        System.out.format("cli1 %s%n", cli1);
+        System.out.format("cli2 %s%n", cli2);
+        System.out.format("cli3 %d%n", cli3);
+
         MultiplayerGameRunner gameRunner = new MultiplayerGameRunner();
-        gameRunner.setLeagueLevel(3);
+        
 
         // add player 1
         if (null != cli1) {
@@ -29,15 +33,17 @@ public class Spring2020Main {
                     "https://static.codingame.com/servlet/fileservlet?id=43829821541064");
         }
 
+        Long seed = 5842184981578562716L;
         if (null != cli3) {
-            gameRunner.setSeed(cli3);
-        } else {
-            gameRunner.setSeed(5842184981578562716L);
+            seed = cli3;
         }
+        gameRunner.setSeed(seed);
+        System.out.format("Seed %d%n", seed);
 
         Properties params = new Properties();
 
         gameRunner.setGameParameters(params);
+        gameRunner.setLeagueLevel(3);
 
         gameRunner.start(8888);
     }
