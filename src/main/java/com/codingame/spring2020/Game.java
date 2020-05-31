@@ -1,6 +1,7 @@
 
 package com.codingame.spring2020;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -344,7 +345,7 @@ public class Game {
             pac.getOwner() == player ? 1 : 0,
             pac.getPosition().x,
             pac.getPosition().y,
-            pac.getType().name().toUpperCase(),
+            pac.isDead() ? "DEAD" : pac.getType().name().toUpperCase(),
             pac.getAbilityDuration(),
             pac.getAbilityCooldown()
         );
@@ -360,13 +361,17 @@ public class Game {
     }
 
     public List<String> getCurrentFrameInfoFor(Player player) {
+        Player opponentPlayer = gameManager.getActivePlayers().get((player.getIndex() + 1) % 2);
         List<String> lines = new ArrayList<String>();
 
-        int playerScore = player.getScore();
-        int opponentScore = gameManager.getActivePlayers().get((player.getIndex() + 1) % 2).getScore();
-        lines.add(String.format("%d %d", playerScore, opponentScore));
+        lines.add(String.format("%d %d", player.pellets, opponentPlayer.pellets));
 
         List<Pacman> visiblePacmen = Config.FOG_OF_WAR ? findVisiblePacmen(player) : pacmen;
+
+        if (Config.PROVIDE_DEAD_PACS) {
+            Stream.concat(player.getDeadPacmen(), opponentPlayer.getDeadPacmen())
+                .forEach(visiblePacmen::add);
+        }
 
         lines.add(Integer.toString(visiblePacmen.size()));
         visiblePacmen
@@ -405,7 +410,7 @@ public class Game {
     }
 
     public void performGameUpdate() {
-        view.startOfTurn();
+        view.startOfTurn(Collections.emptyList());
 
         executePacmenAbilities();
         updateAbilityModifiers();
@@ -419,7 +424,13 @@ public class Game {
     }
 
     public void performGameSpeedUpdate() {
-        view.startOfTurn();
+        List<Player> speeders = pacmen.stream()
+            .filter(p -> p.getIntendedPath().size() > 2)
+            .map(Pacman::getOwner)
+            .distinct()
+            .collect(Collectors.toList());
+
+        view.startOfTurn(speeders);
 
         gameManager.addToGameSummary("Only pacs with the SPEED ability enabled can move:");
 
@@ -674,14 +685,16 @@ public class Game {
                 Ability.Type ability = pac.getAbilityToUse();
                 if (pac.getAbilityCooldown() != 0) {
                     if (pac.getAbilityToUse() == Ability.Type.SPEED) {
-                        pac.addToGameSummary(String.format(
+                        pac.addToGameSummary(
+                            String.format(
                                 "Pac %d can't use a speed boost yet!",
                                 pac.getNumber()
                             )
                         );
                     } else {
                         PacmanType pacType = getPacmanTypeFromAbility(ability);
-                        pac.addToGameSummary(String.format(
+                        pac.addToGameSummary(
+                            String.format(
                                 "Pac %d can't switch to %s form yet!",
                                 pac.getNumber(),
                                 pacType.toString()
@@ -695,7 +708,8 @@ public class Game {
                         || !Config.SWITCH_ABILITY_AVAILABLE && ability != Ability.Type.SPEED
                 ) {
                     String abilityCategory = ability == Ability.Type.SPEED ? "Speed boost" : "Pac type switching";
-                    pac.addToGameSummary(String.format(
+                    pac.addToGameSummary(
+                        String.format(
                             "Pac %d: %s is not available in this league!",
                             pac.getNumber(),
                             abilityCategory
@@ -717,13 +731,15 @@ public class Game {
                 view.addCooldownAnimation(pac);
 
                 if (ability == Ability.Type.SPEED) {
-                    pac.addToGameSummary(String.format(
+                    pac.addToGameSummary(
+                        String.format(
                             "Pac %d used a speed boost.",
                             pac.getNumber()
                         )
                     );
                 } else {
-                    pac.addToGameSummary(String.format(
+                    pac.addToGameSummary(
+                        String.format(
                             "Pac %d switch to %s form.",
                             pac.getNumber(),
                             pac.getType().toString()
@@ -833,7 +849,8 @@ public class Game {
                 )
             );
 
-            pac.addToGameSummary(String.format(
+            pac.addToGameSummary(
+                String.format(
                     "Pac %d has died.",
                     pac.getNumber()
                 )
